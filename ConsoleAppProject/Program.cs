@@ -19,10 +19,7 @@ namespace ConsoleAppProject
         public static decimal UserCash = 150;
         public static decimal UserMineCash = 0;
         public static int UserFarms = 0;
-        public static Dictionary<int, string> Сart = new Dictionary<int, string>()
-        {
-            [0] = "Ферма",
-        };
+        public static Dictionary<Product, int> UserCart = new Dictionary<Product, int>();
 
         static void Main()
         {
@@ -32,7 +29,7 @@ namespace ConsoleAppProject
                 "Для продолжения войдите в аккаунт"
             };
 
-            Shop.Want(UserCash);
+            Shop.Want(UserCash, UserCart);
         }
     }
 }

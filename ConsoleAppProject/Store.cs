@@ -30,13 +30,12 @@ namespace Store
             new Product(1, "Майнинговая ферма", 50, 0.000000165343m),
         };
 
-        public static void Want(decimal cash)
+        public static void Want(decimal userCash, Dictionary<Product, int> userCart)
         {
             start();
-
             void start()
             {
-                Console.Title = "Магазин 'FarmStore'";
+                Console.Title = "Магsазин 'FarmStore'";
                 Console.Clear();
                 Console.WriteLine(" ==================================");
                 Console.WriteLine();
@@ -59,7 +58,6 @@ namespace Store
                 trySetCart();
             }
 
-
             void trySetCart()
             {
                 string input = User.Input();
@@ -75,9 +73,16 @@ namespace Store
 
                             if (int.TryParse(input, out int many))
                             {
-                                if (many * product.Price <= cash && many > 0)
+                                if (many * product.Price <= userCash && many > 0)
                                 {
-                                    // !!!!!!!!!!!!!!!!!!!!!! ТУТ ДОЛЖЕН БЫТЬ МЕТОД ДОБОВЛЕНИЯ В КОРЗИНУ!!! !!!!!!!!!!!!!!!!!!!!!!!
+                                    if(userCart.ContainsKey(product))
+                                    {
+                                        userCart[product] = userCart[product] + many;
+                                    }
+                                    else
+                                    {
+                                        userCart.Add(product, many);
+                                    }
 
                                     Console.WriteLine();
                                     Console.WriteLine(" ==================================");

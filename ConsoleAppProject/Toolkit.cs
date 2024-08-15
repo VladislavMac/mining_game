@@ -54,6 +54,18 @@ namespace Toolkit
             return text;
 
         }
+
+        public static void Menu()
+        {
+            Console.Title = "Меню";
+            Console.Clear();
+            Console.WriteLine(" ==================================");
+            Console.WriteLine();
+            Console.WriteLine($" Добро пожаловать в меню");
+            Console.WriteLine();
+            Console.WriteLine($" Отсюда вы можете отправиться куда угодно при помощи команд");
+            Console.WriteLine($" Введите /help для полного списка команд");
+        }
     }
 
     public static class Server
@@ -177,6 +189,11 @@ namespace Toolkit
             Console.WriteLine($"[ Загрузка -- завершена ]");
 
             Console.Beep(100, 1000);
+        }
+
+        public static void Command(string command)
+        {
+
         }
     }
 }
